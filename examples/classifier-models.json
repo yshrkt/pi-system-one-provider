@@ -1,0 +1,18 @@
+{
+  "providers": {
+    "ollama-system-one": {
+      "name": "Local System One",
+      "baseUrl": "http://localhost:11434/v1/systemone",
+      "models": [
+        {
+          "id": "clef-flash",
+          "name": "Clef Flash"
+        },
+        {
+          "id": "nimble",
+          "name": "Nimble"
+        }
+      ]
+    }
+  }
+}

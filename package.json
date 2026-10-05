@@ -1,0 +1,35 @@
+{
+  "name": "pi-system-one-provider",
+  "version": "0.1.0",
+  "description": "Pi provider extension for configurable System One classifier endpoints",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yshrkt/pi-system-one-provider.git"
+  },
+  "keywords": ["pi-package", "pi", "system-one", "classifier"],
+  "files": ["extensions", "src", "examples", "README.md", "LICENSE"],
+  "pi": {
+    "extensions": ["./extensions/system-one-provider.ts"]
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": ">=1.0.0",
+    "@earendil-works/pi-coding-agent": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^1.0.1",
+    "@earendil-works/pi-coding-agent": "^1.0.1",
+    "@types/node": "^22.19.19",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}
