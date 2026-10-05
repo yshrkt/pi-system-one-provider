@@ -1,5 +1,9 @@
 # pi-system-one-provider
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Pi ≥1.0](https://img.shields.io/badge/Pi-%E2%89%A51.0-orange.svg)](https://github.com/earendil-works/pi)
+[![Node.js ≥22.19](https://img.shields.io/badge/Node.js-%E2%89%A522.19-339933.svg)](package.json)
+
 A [Pi](https://github.com/earendil-works/pi) provider extension that registers classifier models backed by System One-compatible HTTP endpoints.
 
 It deliberately keeps classifier configuration out of Pi's `models.json`. The extension reads a separate `~/.pi/agent/classifier-models.json` file and treats each provider's `baseUrl` as the complete endpoint URL. It never appends `/v1/systemone` or any other path.
@@ -11,16 +15,18 @@ It deliberately keeps classifier configuration out of Pi's `models.json`. The ex
 
 ## Install
 
-From this checkout:
+Install directly from GitHub:
+
+```sh
+pi install git:github.com/yshrkt/pi-system-one-provider
+```
+
+To pin a release, append an existing tag to the source, for example `@v0.1.0` once that release is tagged.
+
+For local development, install from your checkout:
 
 ```sh
 pi install ./path/to/pi-system-one-provider
-```
-
-Once published to npm:
-
-```sh
-pi install npm:pi-system-one-provider
 ```
 
 ## Configure
@@ -126,3 +132,7 @@ npm run check
 ```
 
 The tests verify configuration validation, exact endpoint handling, authentication, and `bool`/`noul` translation without requiring a live model server.
+
+## License
+
+MIT License. Copyright © 2026 Yoshihiro Kato. See [LICENSE](LICENSE) for details.
