@@ -124,6 +124,25 @@ text(result);
 
 Pi's public `bool` question type is translated to System One's wire-level `noul` type. `choice` and `score` pass through unchanged. The request includes the selected model ID so endpoints such as Ollama can route multiple models through the same URL.
 
+## Bundled skill
+
+The package also includes [system-one-classify](skills/system-one-classify/SKILL.md), a skill that teaches Pi how to discover classifier models, choose question types, call them through codemode, and interpret results. Pi can load it when relevant, or you can invoke it explicitly:
+
+```text
+/skill:system-one-classify Use ollama-system-one/clef-flash:latest to classify the sentiment of: "This product is convenient and I love using it."
+```
+
+Replace the provider/model with an ID from your configuration. There is no default classifier setting; specify your preference in the prompt or `AGENTS.md`. The skill discovers available models when no preference is given.
+
+Codemode must be enabled. To try the package and bundled skill from a checkout:
+
+```sh
+PI_SYSTEM_ONE_CONFIG="$PWD/examples/classifier-models.json" \
+  pi -e . --tools read,bash,edit,write,codemode
+```
+
+Restart Pi or run `/reload` after updating the package to discover the new skill.
+
 ## Develop
 
 ```sh
