@@ -1,25 +1,10 @@
 import type { ClassifierOptions, ProviderHeaders } from "@earendil-works/pi-ai";
-import {
-	classifySystemOne,
-	isRecord,
-	type SystemOneTransport,
-} from "@earendil-works/pi-ai/api/system-one-shared";
+import { classifySystemOne, SYSTEM_ONE_API } from "../src/client.js";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { loadConfig, type SystemOneConfig, type SystemOneProviderConfig } from "../src/config.js";
 
-export const SYSTEM_ONE_API = "system-one-endpoint";
+export { SYSTEM_ONE_API };
 const NO_AUTH_CREDENTIAL = "pi-system-one-no-auth";
-
-const transport: SystemOneTransport = {
-	api: SYSTEM_ONE_API,
-	label: "System One API",
-	url: (model) => new URL(model.baseUrl),
-	payload: (model, request) => ({ model: model.id, ...request }),
-	output: (body) => {
-		if (!isRecord(body)) throw new Error("System One API returned an unexpected response");
-		return body;
-	},
-};
 
 function hasAuthorizationHeader(headers: Record<string, unknown> | undefined): boolean {
 	return Object.keys(headers ?? {}).some((name) => name.toLowerCase() === "authorization");
@@ -57,7 +42,7 @@ export function registerProviders(pi: ExtensionAPI, config: SystemOneConfig): vo
 			classifiers: {
 				[SYSTEM_ONE_API]: {
 					classify: (model, context, options) =>
-						classifySystemOne(transport, model, context, classifierOptions(provider, options)),
+						classifySystemOne(model, context, classifierOptions(provider, options)),
 				},
 			},
 		});

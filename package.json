@@ -1,6 +1,6 @@
 {
   "name": "pi-system-one-provider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pi provider extension for configurable System One classifier endpoints",
   "type": "module",
   "license": "MIT",
@@ -20,8 +20,8 @@
     "check": "npm run typecheck && npm test"
   },
   "peerDependencies": {
-    "@earendil-works/pi-ai": ">=1.0.0",
-    "@earendil-works/pi-coding-agent": ">=1.0.0"
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
   },
   "devDependencies": {
     "@earendil-works/pi-ai": "^1.0.1",

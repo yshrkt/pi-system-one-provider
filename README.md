@@ -150,7 +150,9 @@ npm install
 npm run check
 ```
 
-The tests verify configuration validation, exact endpoint handling, authentication, and `bool`/`noul` translation without requiring a live model server.
+The tests verify configuration validation, exact endpoint handling, authentication,
+question translation, retries, and usage costs without requiring a live model server.
+They also load a copy without `node_modules` through Pi's actual extension loader.
 
 ## License
 
